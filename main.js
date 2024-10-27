@@ -12,3 +12,5 @@ fetch('path/to/categories.json')
       categoryList.appendChild(button);
     });
   });
+
+  
