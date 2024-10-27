@@ -1,0 +1,38 @@
+/* style.css */
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #343a40;
+}
+
+.form-control {
+  border-radius: 0.25rem;
+}
+
+.btn-outline-success {
+  color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-outline-success:hover {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.nav-link {
+  font-size: 1rem;
+  color: #ffffff !important;
+}
+
+.bg-secondary {
+  background-color: #343a40 !important;
+}
+
+.navbar-nav {
+    flex-direction: row; /* Navbar öğelerini yatay olarak hizala */
+    justify-content: center; /* Öğeleri merkezle */
+}
+.nav-item {
+    margin: 0 15px; /* Her bir nav-item arasına boşluk ekle */
+    padding: 0 10px;
+}
