@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <?php include 'header.php'; ?>
 
 <!-- Ana İçerik -->
@@ -18,8 +22,25 @@
         </div>
     </nav>
 
+
+
+
+
+<h1>Sepetiniz</h1>
+
+<?php if (!empty($_SESSION['sepet'])): ?>
+    <ul>
+        <?php foreach ($_SESSION['sepet'] as $urun): ?>
+            <li><?php echo $urun['isim']; ?> - <?php echo $urun['fiyat']; ?> TL</li>
+        <?php endforeach; ?>
+    </ul>
+<?php else: ?>
+    <p>Sepetinizde ürün bulunmamaktadır.</p>
+<?php endif; ?>
+
+
     <!-- Sepet Bilgisi -->
-    <h3 class="mt-4">Sepetim</h3>
+    
     <ul id="cart-list" class="list-group mb-4"></ul>
 
     <!-- Sepeti WhatsApp ile Gönder Butonu -->
@@ -69,4 +90,8 @@
         const whatsappLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
         window.open(whatsappLink, '_blank');
     });
+    window.onload = function() {
+    updateCartDisplay(); // localStorage'dan cart'ı güncelle
+};
+
 </script>
