@@ -7,20 +7,7 @@ session_start();
 <!-- Ana İçerik -->
 <div class="container mt-5">
 
-    <!-- Alt Navbar (Kategoriler) -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
-        <div class="container-fluid justify-content-center">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item"><a class="nav-link" href="urunler.php?category=Kategori1">Desenli Eşarp</a></li>
-                <li class="nav-item"><a class="nav-link" href="urunler.php?category=Kategori2">Dijital Eşarp</a></li>
-                <li class="nav-item"><a class="nav-link" href="urunler.php?category=Kategori3">El Yüz Havlusu</a></li>
-                <li class="nav-item"><a class="nav-link" href="urunler.php?category=Kategori4">Bone Çeşitleri</a></li>
-                <li class="nav-item"><a class="nav-link" href="urunler.php?category=Kategori5">Mutfak Havlusu</a></li>
-                <li class="nav-item"><a class="nav-link" href="urunler.php?category=Kategori6">Ayak Havlusu</a></li>
-                <li class="nav-item"><a class="nav-link" href="urunler.php?category=Kategori7">Kolluk</a></li>
-            </ul>
-        </div>
-    </nav>
+
 
     <h1>Sepetiniz</h1>
 

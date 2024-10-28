@@ -1,10 +1,15 @@
 /* style.css */
 .navbar-brand {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #343a40;
+  position: absolute; /* Konumunu ayarlamak için */
+  left: 50%; /* Sol kenardan %50 uzaklık */
+  transform: translateX(-50%); /* Elemanı kendi genişliğinin yarısı kadar sola kaydır */
 }
 
+.navbar .container {
+  display: flex;
+  justify-content: space-between; /* Elemanları iki yanda tut */
+  align-items: center; /* Yatayda ortala */
+}
 .form-control {
   border-radius: 0.25rem;
 }
@@ -31,9 +36,10 @@
 .navbar-nav {
     flex-direction: row; /* Navbar öğelerini yatay olarak hizala */
     justify-content: center; /* Öğeleri merkezle */
+    
 }
 .nav-item {
-    margin: 0 15px; /* Her bir nav-item arasına boşluk ekle */
+    margin: 0 25px; /* Her bir nav-item arasına boşluk ekle */
     padding: 0 10px;
 }
 

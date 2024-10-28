@@ -37,16 +37,7 @@
   <footer class="footer">
     <div class="container">
       <h5>İletişim Bilgileri</h5>
-      <p>Adres: Örnek Mah. No: 123, İstanbul</p>
-      <p>Telefon: +90 123 456 7890</p>
-      <p>Email: info@ornekisletme.com</p>
-      <div class="social-icons">
-        <h5>Sosyal Medya</h5>
-        <a href="#" class="bi bi-facebook" title="Facebook"><i class="bi bi-facebook fs-4"></i></a>
-        <a href="#" class="bi bi-twitter" title="Twitter"><i class="bi bi-twitter fs-4"></i></a>
-        <a href="#" class="bi bi-instagram" title="Instagram"><i class="bi bi-instagram fs-4"></i></a>
-        <a href="#" class="bi bi-linkedin" title="LinkedIn"><i class="bi bi-linkedin fs-4"></i></a>
-      </div>
+      <p>Email: sametdmzn.gmail.com</p>
       <p>&copy; 2024 Tüm Hakları Saklıdır.</p>
     </div>
   </footer>
