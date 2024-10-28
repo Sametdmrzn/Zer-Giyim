@@ -72,19 +72,20 @@ session_start();
         }
     });
 
-    // WhatsApp ile gönderme
     document.getElementById('checkout-btn').addEventListener('click', function() {
-        if (cart.length === 0) {
-            alert('Sepetinizde ürün yok!');
-            return;
-        }
-        
-        let message = 'Sepetim:\n';
-        cart.forEach(product => {
-            message += `${product.name} - ${product.price} TL\n`;
-        });
-        
-        const whatsappLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
-        window.open(whatsappLink, '_blank');
+    if (cart.length === 0) {
+        alert('Sepetinizde ürün yok!');
+        return;
+    }
+    
+    let message = 'Sepetim:\n';
+    cart.forEach(product => {
+        message += `${product.name} - ${product.price} TL\n`;
     });
+    
+    const phoneNumber = '905469467889'; // +90 546 946 78 89 numarası
+    const whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+    window.open(whatsappLink, '_blank');
+});
+
 </script>
