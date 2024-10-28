@@ -22,26 +22,20 @@ session_start();
         </div>
     </nav>
 
-
-
-
-
-<h1>Sepetiniz</h1>
-
-<?php if (!empty($_SESSION['sepet'])): ?>
-    <ul>
-        <?php foreach ($_SESSION['sepet'] as $urun): ?>
-            <li><?php echo $urun['isim']; ?> - <?php echo $urun['fiyat']; ?> TL</li>
-        <?php endforeach; ?>
-    </ul>
-<?php else: ?>
-    <p>Sepetinizde ürün bulunmamaktadır.</p>
-<?php endif; ?>
-
+    <h1>Sepetiniz</h1>
 
     <!-- Sepet Bilgisi -->
-    
     <ul id="cart-list" class="list-group mb-4"></ul>
+
+    <?php if (!empty($_SESSION['sepet'])): ?>
+        <ul>
+            <?php foreach ($_SESSION['sepet'] as $urun): ?>
+                <li><?php echo $urun['isim']; ?> - <?php echo $urun['fiyat']; ?> TL</li>
+            <?php endforeach; ?>
+        </ul>
+    <?php else: ?>
+        <p>Sepetinizde ürün bulunmamaktadır.</p>
+    <?php endif; ?>
 
     <!-- Sepeti WhatsApp ile Gönder Butonu -->
     <button id="checkout-btn" class="btn btn-success mt-4">Sepeti WhatsApp ile Gönder</button>
@@ -59,11 +53,14 @@ session_start();
         cartList.innerHTML = ''; // Önceki sepeti temizle
 
         // Sepetteki ürünleri listele
-        cart.forEach(product => {
+        cart.forEach((product, index) => {
             const cartItem = `
-                <li class="list-group-item">
-                    <img src="${product.image}" alt="${product.name}" style="width: 50px; height: auto; margin-right: 10px;">
-                    ${product.name} - ${product.price} TL
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <img src="${product.image}" alt="${product.name}" style="width: 50px; height: auto; margin-right: 10px;">
+                        ${product.name} - ${product.price} TL
+                    </div>
+                    <button class="remove-btn btn btn-danger btn-sm" data-index="${index}">Sil</button>
                 </li>
             `;
             cartList.innerHTML += cartItem; // Sepet öğesini ekle
@@ -74,6 +71,19 @@ session_start();
     window.onload = function() {
         updateCartDisplay();
     };
+
+    // Silme butonu için olay dinleyici
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('remove-btn')) {
+            const index = event.target.getAttribute('data-index');
+
+            // Sepetten ürünü sil
+            cart.splice(index, 1); // Ürünü sil
+            localStorage.setItem('cart', JSON.stringify(cart)); // Güncellenmiş sepeti kaydet
+
+            updateCartDisplay(); // Sepeti güncelle
+        }
+    });
 
     // WhatsApp ile gönderme
     document.getElementById('checkout-btn').addEventListener('click', function() {
@@ -90,8 +100,4 @@ session_start();
         const whatsappLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
         window.open(whatsappLink, '_blank');
     });
-    window.onload = function() {
-    updateCartDisplay(); // localStorage'dan cart'ı güncelle
-};
-
 </script>
