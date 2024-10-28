@@ -100,7 +100,7 @@ function updateCartCount() {
     document.getElementById("cart-count").textContent = `(${cartItems.length})`;
 }
 
-
+  
   </script>
 </body>
 </html>
